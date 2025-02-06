@@ -1,0 +1,54 @@
+[tool.poetry]
+name = "api-snippet-codes"
+version = "0.1.0"
+description = "API для приложения, которое позволяет генерировать код-сниппеты"
+authors = ["Svetlana Krasnova"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.8"
+fastapi = {extras = ["all"], version = "^0.115.6"}
+pydantic-settings = "^2.7.1"
+httpx = "^0.28.1"
+asyncpg = "^0.30.0"
+greenlet = "^3.1.1"
+alembic = "^1.14.0"
+pytest = "^8.3.4"
+python-jose = {extras = ["cryptogrphy"], version = "^3.3.0"}
+passlib = {extras = ["bcrypt"], version = "^1.7.4"}
+bcrypt = "3.2.2"
+tortoise = "^0.1.1"
+aiosqlite = "^0.20.0"
+sqlalchemy = "2.0.31"
+ruff = "0.1.5"
+pytest_asyncio = "0.24.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.ruff]
+preview = false
+ignore-init-module-imports = true
+line-length = 120
+include = ["*.py"]
+exclude = ["*.git", "migrations", "venv38", "venv", "alembic", ".flake8", "pyproject.toml", "pytest.ini", "README.md"]
+ignore = [
+    "C901", "E501", "E203", "F403", "F405", "D100", "D103", "D104", "BLE001", "FIX002", "B905",
+    "RET505", "RET506", "RET507", "RET508", "SIM114", "SIM102", "B904", "DJ012", "PT019",
+    "B020", "SIM112", "PIE804", "E741", "DJ007", "B019", "B026", "B905",
+]
+select = ["E", "F", "A", "Q", "B", "COM", "C4", "DJ", "FIX", "PIE", "T20", "PT", "RET", "SIM", "N", "ERA", "ISC", "I"]
+show-source = true
+show-fixes = true
+
+[tool.ruff.format]
+quote-style = "single"
+
+[tool.ruff.isort]
+case-sensitive = false
+order-by-type = false
+
+[tool.pytest.ini_options]
+asyncio_default_fixture_loop_scope = "function"
